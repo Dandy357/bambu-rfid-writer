@@ -18,9 +18,10 @@ The release package contains the source launcher and can optionally build a Wind
 
 ## Main features
 
-### MIFARE Classic / CUID
+### MIFARE Classic 1K / CUID Gen2 only
 
 - Load Bambu MIFARE Classic 1K dump and key pairs from a material library.
+- Write only to a compatible MIFARE Classic 1K Magic Gen2 / CUID Gen2 target.
 - Validate dump size, key size, UID, BCC, trailer keys, and access bits.
 - Detect a compatible CUID / Magic Gen2 target before writing.
 - Verify all 32 default keys on a new target when the selected profile requires it.
@@ -28,6 +29,11 @@ The release package contains the source launcher and can optionally build a Wind
 - Restore the complete 1 KiB image and optionally compare it byte for byte.
 - Recognize an already-programmed tag with identical content and finish without writing.
 - Block unsupported replacement of different content on an already-programmed CUID.
+
+> [!IMPORTANT]
+> **CUID support is limited to MIFARE Classic 1K Magic Gen2 / CUID Gen2 tags.**
+> Standard non-magic MIFARE Classic tags and other Magic generations, including
+> Gen1a, Gen3, and Gen4, are not supported for writing.
 
 ### NFC Type 2 / NDEF
 
