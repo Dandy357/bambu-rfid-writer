@@ -10,6 +10,14 @@ The application provides a graphical interface for operations that would otherwi
 
 > **First public beta:** Version 0.9.3 is the first public release. The automated test suite covers parsers, safety rules, command generation, workflows, settings, and core GUI contracts. NTAG215 writing, NDEF reading, and full user-area clearing have been physically confirmed by the maintainer. NTAG213 and NTAG216 destructive operations are implemented but have not yet been physically confirmed. Rewriting an already-programmed CUID with different content is intentionally blocked.
 
+<p align="center">
+  <img
+    src="docs/Screenshots/cuid-workflow.PNG"
+    alt="Bambu RFID Writer CUID Gen2 workflow"
+    width="950"
+  >
+</p>
+
 ## Download and release status
 
 Download the user package from the repository's **Releases** page. Version 0.9.3 is published as a **pre-release / public beta** rather than a final 1.0 release.
