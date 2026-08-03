@@ -1,0 +1,80 @@
+name: Bug report
+description: Report a reproducible application problem
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Remove real tag dumps, keys, personal paths, UIDs, and unrelated private log content before submitting.
+  - type: input
+    id: version
+    attributes:
+      label: Bambu RFID Writer version
+      placeholder: 0.9.3
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version
+      placeholder: Windows 10 22H2 or Windows 11 24H2
+    validations:
+      required: true
+  - type: input
+    id: proxmark
+    attributes:
+      label: Proxmark3 client and firmware build
+      placeholder: RRG/Iceman build identifier
+    validations:
+      required: true
+  - type: dropdown
+    id: workflow
+    attributes:
+      label: Workflow
+      options:
+        - CUID check
+        - CUID write
+        - NDEF check
+        - NDEF read
+        - NDEF write
+        - Clear NDEF content
+        - Zero user memory
+        - Settings / interface
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: Describe the shortest reliable sequence.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: sanitized_log
+    attributes:
+      label: Sanitized log or report
+      description: Remove real UIDs, keys, file paths, tag contents, and personal information.
+      render: text
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      options:
+        - label: I removed real dumps, keys, UIDs, personal paths, and private information.
+          required: true
+        - label: I used only tags and data that I own or am authorized to use.
+          required: true

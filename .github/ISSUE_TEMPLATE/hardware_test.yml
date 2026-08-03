@@ -1,0 +1,70 @@
+name: Hardware test result
+description: Share a successful or unsuccessful physical tag test
+labels: [hardware-test]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Application version
+      placeholder: 0.9.3
+    validations:
+      required: true
+  - type: input
+    id: tag
+    attributes:
+      label: Tag family and claimed capacity
+      placeholder: NTAG215 clone, CUID Gen2 1K, etc.
+    validations:
+      required: true
+  - type: input
+    id: proxmark
+    attributes:
+      label: Proxmark3 hardware and RRG/Iceman build
+    validations:
+      required: true
+  - type: dropdown
+    id: operation
+    attributes:
+      label: Operation tested
+      options:
+        - Check CUID
+        - Write CUID to fresh target
+        - Check NDEF
+        - Read NDEF
+        - Write NDEF
+        - Clear NDEF content
+        - Zero user memory
+    validations:
+      required: true
+  - type: dropdown
+    id: result
+    attributes:
+      label: Result
+      options:
+        - Successful and verified
+        - Application blocked the operation as expected
+        - Failed without writing
+        - Failed after a write began
+        - Uncertain
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: How the result was verified
+      description: Do not attach real dumps, keys, or unique tag data.
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional sanitized notes
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      options:
+        - label: I removed real UIDs, dumps, keys, personal paths, and private information.
+          required: true
+        - label: I tested only tags and data that I own or am authorized to use.
+          required: true
