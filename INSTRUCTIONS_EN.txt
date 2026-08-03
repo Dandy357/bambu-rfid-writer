@@ -1,0 +1,103 @@
+BAMBU RFID WRITER 0.9.3 — QUICK INSTRUCTIONS
+==================================================
+
+IMPORTANT
+---------
+Rewriting an already-programmed CUID with different data is unsupported in this
+version. Physical NTAG213/216 operations are not yet confirmed. Use a disposable
+tag and the Recommended profile for first attempts.
+
+STARTUP
+-------
+1. Extract the complete ZIP to a new folder.
+2. Close other Proxmark3 clients.
+3. Run Run_Bambu_RFID_Writer.bat.
+4. Open the small square Settings button at the upper left.
+5. On the Settings page select the pm3.bat folder, COM port, language, and appearance.
+6. In Library settings select the root and perform the first load.
+7. Switch to CUID or NDEF and select an operation profile.
+
+PRIMARY NAVIGATION
+------------------
+A small square Settings button is on the left, followed by compact CUID and NDEF
+buttons. Settings is a normal third page rather than a popup. Its first tab is
+General and contains language, appearance, connection, library, user-data, and
+About controls. Additional tabs contain profiles and timeouts.
+
+PROFILES
+--------
+Fast:
+- is not check-free;
+- CUID verifies source files, BCC, MIFARE Classic 1K, Magic/CUID, and default keys;
+- NDEF verifies the tag profile, static and dynamic lock bits, and AUTH0;
+- normally skips firmware, backup, ECC, and final readback.
+
+Recommended: normal protection checks, valuable backup, and final verification.
+Thorough: all available checks and intermediate steps.
+Custom: manual optional steps; mandatory technical safety remains enforced.
+
+MATERIAL LIBRARY
+----------------
+The root and manual loading controls are in Settings → Library. The CUID page
+keeps only a compact status and Refresh library. Drag the divider between the
+library tree and source details to resize them; the position is saved.
+
+A valid cache is restored from:
+%LOCALAPPDATA%\BambuRFIDWriter\material_library_cache.json
+The cache never stores dump contents or keys and never replaces full validation
+before writing.
+
+CUID / BAMBU TAG
+----------------
+1. Open CUID.
+2. Select a Bambu source from the library.
+3. Place exactly one CUID/Gen2 MIFARE Classic 1K tag on the antenna.
+4. Press Write Bambu tag.
+
+An exact 1024/1024-byte programmed target ends as No change. Different content
+ends as Unsupported before any destructive command.
+
+NFC TYPE 2 / NDEF
+-----------------
+Writable profiles: NTAG213, NTAG215, and NTAG216. An unknown Type 2 tag can be
+diagnosed, but writing remains blocked without a known memory layout.
+
+Every editor row can be moved or removed, including the built-in rows. Add text
+field creates an ordinary text value; Add link field creates the optional URI
+record. A message may be text-only, link-only, or mixed. At most one link field
+is supported, and the encoded record order follows the displayed row order.
+
+Clear NDEF content is the larger normal action and removes only the NDEF TLV.
+Zero user memory is the smaller red destructive action and removes all user data
+in a known profile while preserving UID, lock bits, and configuration. Long NDEF
+values show a horizontal scrollbar only when needed. If Write field name is
+enabled, the name is followed by one space without an automatically added colon.
+
+EXE
+---
+An EXE is optional. Run_Bambu_RFID_Writer.bat is the full Python-based launcher.
+Build_EXE.bat creates a local build environment and is expected to produce
+dist\Bambu_RFID_Writer.exe through Bambu_RFID_Writer.spec.
+
+USER DATA AND CLEAN INSTALL
+---------------------------
+All per-user state is stored in %LOCALAPPDATA%\BambuRFIDWriter. This includes
+settings.json, material_library_cache.json, logs, and backups. Settings → General
+contains Delete user data. After two confirmations it deletes the complete folder
+and closes without recreating settings. The folder can also be deleted manually
+while the program is closed. The next launch starts in English. External
+Proxmark3 and material-library folders are not deleted.
+
+FILES
+-----
+Logs:     %LOCALAPPDATA%\BambuRFIDWriter\logs
+Backups:  %LOCALAPPDATA%\BambuRFIDWriter\backups
+Tests:    Run_Tests.bat
+Quality:  Run_Quality_Checks.bat
+
+READ-ONLY CHECKS
+----------------
+- Use Check CUID on the CUID page to verify a MIFARE Classic 1K CUID/Gen2 target.
+- Use Check NDEF on the NDEF page to verify an NFC Type 2 target.
+- Use Read NDEF to display the current Text and URI records without writing.
+- The read operation uses a temporary MFU dump and deletes it after decoding.

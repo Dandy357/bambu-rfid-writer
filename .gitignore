@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.ruff_cache/
+.mypy_cache/
+
+# Virtual environments and local build tools
+.venv/
+venv/
+env/
+.build-tools/
+
+# Build output
+build/
+dist/
+*.egg-info/
+
+# Application user data and runtime output
+settings.json
+material_library_cache.json
+logs/
+backups/
+*.log
+
+# Local RFID/NFC data and potentially sensitive captures
+*.dump
+*.eml
+*.json.bin
+hf-mf-*-dump.bin
+hf-mf-*-key.bin
+hf-mfu-*.bin
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
