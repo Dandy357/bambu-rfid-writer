@@ -57,6 +57,18 @@ The release package contains the source launcher and can optionally build a Wind
 - Persist the complete field list, values, types, and order.
 - Read an NFC Type 2 tag without writing and display decoded Text and URI records in a copyable dialog.
 
+The NDEF editor is a separate feature from Bambu CUID cloning. It is intended
+for ordinary NFC Type 2 tags, such as NTAG215.
+
+I originally added it for NFC tags attached to my filament swatches. By tapping
+a swatch with an NFC-capable phone, I can immediately view useful information
+such as the manufacturer, material, colour, purchase date, notes, or a link to
+the filament product page.
+
+The editor can create and reorder text and URI fields, read existing NDEF
+content, check the encoded size, and prepare reusable tags without requiring
+a separate mobile application.
+
 ### Interface and diagnostics
 
 - English is the default language on a clean installation.
