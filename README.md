@@ -71,6 +71,40 @@ The release package contains the source launcher and can optionally build a Wind
 - Per-user logs, backups, settings, and material-library cache.
 - A General-settings action can delete all application user data and close without recreating it.
 
+## Screenshots
+
+### CUID Gen2 workflow
+
+Browse a Bambu material library, select a validated dump and key pair,
+check the target, and write a compatible MIFARE Classic 1K Magic Gen2 /
+CUID Gen2 tag through one controlled workflow.
+
+![CUID Gen2 workflow](docs/Screenshots/cuid-workflow.PNG)
+
+### NFC Type 2 / NDEF editor
+
+Create, remove, and reorder text and URI fields, read the existing NDEF
+message, check its encoded size, and choose between clearing only the NDEF
+content or zeroing the complete supported user-memory area.
+
+![NFC Type 2 and NDEF editor](docs/Screenshots/ndef-editor.PNG)
+
+### Write verification and diagnostics
+
+After writing, the results page lists the performed safety checks, backup
+location, detected tag profile, protected memory conditions, and the final
+byte-for-byte verification result.
+
+![Successful NDEF write verification](docs/Screenshots/write-verification.PNG)
+
+### Dark theme
+
+The complete interface is available in both light and dark themes. Layout,
+status information, material-library browsing, and writing controls remain
+identical between them.
+
+![Bambu RFID Writer dark theme](docs/Screenshots/dark-theme.PNG)
+
 ## Requirements
 
 - Windows 10 or Windows 11.
